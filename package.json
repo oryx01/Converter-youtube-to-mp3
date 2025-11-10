@@ -1,0 +1,19 @@
+{
+  "name": "video-to-mp3-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "express": "^5.1.0",
+    "iconv-lite": "^0.7.0",
+    "windows-1251": "^3.0.4"
+  }
+}
