@@ -15,5 +15,9 @@
     "express": "^5.1.0",
     "iconv-lite": "^0.7.0",
     "windows-1251": "^3.0.4"
+  },
+  "devDependencies": {
+    "ngrok": "^5.0.0-beta.2"
   }
 }
+
