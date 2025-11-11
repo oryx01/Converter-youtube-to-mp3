@@ -6,8 +6,8 @@ const path = require('path');
 const os = require('os');
 
 // === Пути ===
-const YT_DLP = path.join(__dirname, 'bin', 'yt-dlp.exe');
-const FFMPEG_PATH = path.join(__dirname, 'bin', 'ffmpeg.exe');
+const YT_DLP = 'yt-dlp';
+const FFMPEG_PATH = 'ffmpeg';
 const TEMP_DIR = path.join(__dirname, 'temp');
 
 // === Добавляем bin в PATH (Windows) ===
@@ -38,8 +38,8 @@ try {
 } catch (e) {}
 
 // === Express ===
-const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
