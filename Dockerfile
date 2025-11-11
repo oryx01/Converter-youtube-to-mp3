@@ -1,23 +1,21 @@
-# Базовый образ с Node.js
+# Используем Node 22 как базовый образ
 FROM node:22
 
-# Устанавливаем ffmpeg и yt-dlp
+# Устанавливаем необходимые пакеты
 RUN apt-get update && \
     apt-get install -y ffmpeg python3-pip && \
-    pip install -U yt-dlp
+    pip install -U yt-dlp 
 
-# Создаём директорию приложения
+# Копируем проект
 WORKDIR /app
-
-# Копируем package.json и устанавливаем зависимости
-COPY package*.json ./
-RUN npm install
-
-# Копируем остальные файлы проекта
 COPY . .
 
-# Указываем порт
-ENV PORT=10000
+# Устанавливаем зависимости Node.js
+RUN npm install
 
-# Запуск
-CMD ["node", "server.js"]
+# Указываем порт (тот, который Render ждёт)
+ENV PORT=10000
+EXPOSE 10000
+
+# Запускаем сервер
+CMD ["npm", "start"]
